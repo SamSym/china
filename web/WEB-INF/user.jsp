@@ -46,30 +46,6 @@
                             width: 100
                         },
                         {
-                            field: 'age',
-                            title: '年龄',
-                            width: 100
-                        },
-                        {
-                            field: 'sex',
-                            title: '性别',
-                            width: 100,
-                            formatter: function (val, rowdata, index) {
-                                if (rowdata.sex == 'M') {
-                                    return "男";
-                                } else if (rowdata.sex == 'F') {
-                                    return "女";
-                                } else {
-                                    return "";
-                                }
-                            }
-                        },
-                        {
-                            field: 'tel',
-                            title: '电话',
-                            width: 100
-                        },
-                        {
                             field: 'User_photo_path',
                             title: '头像',
                             width: 80,

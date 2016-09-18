@@ -28,20 +28,25 @@ public class UserApi extends Controller {
         }
     }
 
-    public void addorder() {
-
+    public void addUser() {
+        Map<String, Object> map = new HashMap<>();
+        String dsname = getPara("ThreeId");
+        User user = User.dao.findFirst("select * from user where dsname = ?", dsname);
+        if (user == null) {
+            User model = new User();
+            model.setDsname(dsname);
+            model.setUname(getPara("ThreeName"));
+            model.setUserPhotoPath(getPara("ThreeImg"));
+            model.setCreateTime(new Date());
+            model.save();
+            map.put("Userid", model.getUserid());
+        } else
+            map.put("Userid", user.getUserid());
+        map.put("code", 200);
+        renderJson(map);
     }
 
-    public void addUser() {
-        User model = new User();
-        model.setDsname(getPara("ThreeId"));
-        model.setUname(getPara("ThreeName"));
-        model.setUserPhotoPath(getPara("ThreeImg"));
-        model.setCreateTime(new Date());
-        model.save();
-        Map<String, Object> map = new HashMap<>();
-        map.put("code", 200);
-        map.put("Userid", model.getUserid());
-        renderJson(map);
+    public void addorder() {
+        renderJson(JsonResult.result(true, "200", "预约成功", null));
     }
 }
