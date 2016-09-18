@@ -7,6 +7,7 @@ import syz.common.JsonResult;
 import syz.common.WebUtil;
 import syz.model.MyDh;
 
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -34,19 +35,20 @@ public class MyDhController extends Controller {
     }
 
     public void save() {
-        Boolean result;
         UploadFile uploadFile = getFile("zt_photo_path_file");
         MyDh model = getModel(MyDh.class, "");
         if (uploadFile != null) {
-            model.setZtPhotoPath(WebUtil.getUploadUrl(getRequest()) + uploadFile.getFileName());
+            String fileName = WebUtil.getRandomFileName(uploadFile.getFileName());
+            if(uploadFile.getFile().renameTo(new File(uploadFile.getUploadPath(), fileName))) {
+                model.setZtPhotoPath(WebUtil.getImageUrl(getRequest(), fileName));
+            }
         }
         if (model.getDid() != null) {
             model.setUpdateTime(new Date());
-            result = model.update();
+            renderJson(JsonResult.result(model.update()));
         } else {
             model.setCreateTime(new Date());
-            result = model.save();
+            renderJson(JsonResult.result(model.save()));
         }
-        renderJson(JsonResult.result(result));
     }
 }

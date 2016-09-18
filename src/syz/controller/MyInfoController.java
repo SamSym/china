@@ -7,6 +7,7 @@ import syz.common.JsonResult;
 import syz.common.WebUtil;
 import syz.model.MyInfo;
 
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -34,19 +35,20 @@ public class MyInfoController extends Controller {
     }
 
     public void save() {
-        Boolean result;
         UploadFile uploadFile = getFile("photo_path_file");
         MyInfo model = getModel(MyInfo.class, "");
         if (uploadFile != null) {
-            model.setPhotoPath(WebUtil.getUploadUrl(getRequest()) + uploadFile.getFileName());
+            String fileName = WebUtil.getRandomFileName(uploadFile.getFileName());
+            if(uploadFile.getFile().renameTo(new File(uploadFile.getUploadPath(), fileName))) {
+                model.setPhotoPath(WebUtil.getImageUrl(getRequest(), fileName));
+            }
         }
         if (model.getMid() != null) {
             model.setUpdateTime(new Date());
-            result = model.update();
+            renderJson(JsonResult.result(model.update()));
         } else {
             model.setCreateTime(new Date());
-            result = model.save();
+            renderJson(JsonResult.result(model.save()));
         }
-        renderJson(JsonResult.result(result));
     }
 }

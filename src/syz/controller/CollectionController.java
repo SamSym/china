@@ -7,6 +7,7 @@ import syz.common.JsonResult;
 import syz.common.WebUtil;
 import syz.model.Collection;
 
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -34,19 +35,20 @@ public class CollectionController extends Controller {
     }
 
     public void save() {
-        Boolean result;
         UploadFile uploadFile = getFile("collection_photo_path_file");
         Collection model = getModel(Collection.class, "");
         if (uploadFile != null) {
-            model.setCollectionPhotoPath(WebUtil.getUploadUrl(getRequest()) + uploadFile.getFileName());
+            String fileName = WebUtil.getRandomFileName(uploadFile.getFileName());
+            if(uploadFile.getFile().renameTo(new File(uploadFile.getUploadPath(), fileName))) {
+                model.setCollectionPhotoPath(WebUtil.getImageUrl(getRequest(), fileName));
+            }
         }
         if (model.getCid() != null) {
             model.setUpdateTime(new Date());
-            result = model.update();
+            renderJson(JsonResult.result(model.update()));
         } else {
             model.setCreateTime(new Date());
-            result = model.save();
+            renderJson(JsonResult.result(model.save()));
         }
-        renderJson(JsonResult.result(result));
     }
 }

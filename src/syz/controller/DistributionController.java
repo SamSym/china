@@ -7,12 +7,14 @@ import syz.common.JsonResult;
 import syz.common.WebUtil;
 import syz.model.Distribution;
 
+import java.io.File;
+
 /**
  * Created by 宋亚周 on 2016/9/16 0016 19:34.
  */
 public class DistributionController extends Controller {
 
-    public void index(){
+    public void index() {
         render("distribution.jsp");
     }
 
@@ -32,17 +34,18 @@ public class DistributionController extends Controller {
     }
 
     public void save() {
-        Boolean result;
         UploadFile uploadFile = getFile("disphoto_path_file");
         Distribution model = getModel(Distribution.class, "");
         if (uploadFile != null) {
-            model.setDisphotoPath(WebUtil.getUploadUrl(getRequest()) + uploadFile.getFileName());
+            String fileName = WebUtil.getRandomFileName(uploadFile.getFileName());
+            if (uploadFile.getFile().renameTo(new File(uploadFile.getUploadPath(), fileName))) {
+                model.setDisphotoPath(WebUtil.getImageUrl(getRequest(), fileName));
+            }
         }
         if (model.getDisid() != null) {
-            result = model.update();
+            renderJson(JsonResult.result(model.update()));
         } else {
-            result = model.save();
+            renderJson(JsonResult.result(model.save()));
         }
-        renderJson(JsonResult.result(result));
     }
 }

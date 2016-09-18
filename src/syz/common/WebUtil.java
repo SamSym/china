@@ -1,6 +1,7 @@
 package syz.common;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
 
 /**
  * Created by 宋亚周 on 2016/1/27 0027 21:50.
@@ -16,7 +17,11 @@ public class WebUtil {
         return request.getScheme() + "://" + request.getServerName() + port + request.getContextPath();
     }
 
-    public static String getUploadUrl(HttpServletRequest request){
-        return getDomain(request) + "/upload/";
+    public static String getImageUrl(HttpServletRequest request, String fileName){
+        return getDomain(request) + "/upload/" + fileName;
+    }
+
+    public static String getRandomFileName(String oldName){
+        return UUID.randomUUID().toString() + oldName.substring(oldName.lastIndexOf("."));
     }
 }
