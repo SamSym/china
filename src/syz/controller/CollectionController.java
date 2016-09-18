@@ -4,6 +4,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.upload.UploadFile;
 import syz.common.JsonResult;
+import syz.common.WebUtil;
 import syz.model.Collection;
 
 import java.util.Date;
@@ -37,7 +38,7 @@ public class CollectionController extends Controller {
         UploadFile uploadFile = getFile("collection_photo_path_file");
         Collection model = getModel(Collection.class, "");
         if (uploadFile != null) {
-            model.setCollectionPhotoPath(uploadFile.getFileName());
+            model.setCollectionPhotoPath(WebUtil.getUploadUrl(getRequest()) + uploadFile.getFileName());
         }
         if (model.getCid() != null) {
             model.setUpdateTime(new Date());

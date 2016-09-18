@@ -38,7 +38,7 @@
                         {
                             field: 'c_no',
                             title: '编号',
-                            width: 80
+                            width: 60
                         },
                         {
                             field: 'cname',
@@ -50,14 +50,13 @@
                             title: '图片',
                             width: 80,
                             formatter: function (value, row, index) {
-                                var url = ctx + "/upload/" + value;
-                                return "<a target='_blank' href='" + url + "'><img width='100' height='50' src='" + url + "'/></a>";
+                                return "<a target='_blank' href='" + value + "'><img width='100' height='50' src='" + value + "'/></a>";
                             }
                         },
                         {
                             field: 'collection_cd',
                             title: '朝代',
-                            width: 80
+                            width: 60
                         },
                         {
                             field: 'c_weight',
@@ -72,12 +71,12 @@
                         {
                             field: 'display',
                             title: '所在展厅',
-                            width: 80
+                            width: 60
                         },
                         {
                             field: 'c_js',
                             title: '介绍',
-                            width: 130,
+                            width: 200,
                             formatter: function (value, row, index) {
                                 return "<span class='easyui-tooltip' title='" + value + "'>" + value + "</span>";
                             }
@@ -85,7 +84,7 @@
                         {
                             field: 'create_time',
                             title: '添加时间',
-                            width: 100,
+                            width: 60,
                             formatter: function (value, row, index) {
                                 return new Date(value).format("yyyy-MM-dd HH:mm");
                             }
@@ -254,19 +253,19 @@
             </tr>
             <tr>
                 <td class="tr">朝代：</td>
-                <td><input name="collection_cd" class="easyui-textBox" data-options="required:true"></td>
+                <td><input name="collection_cd" class="easyui-textBox"></td>
             </tr>
             <tr>
                 <td class="tr">重量：</td>
-                <td><input name="c_weight" class="easyui-textBox" data-options="required:true"></td>
+                <td><input name="c_weight" class="easyui-textBox"></td>
             </tr>
             <tr>
                 <td class="tr">推荐指数：</td>
-                <td><input name="zs" class="easyui-numberBox" data-options="required:true"></td>
+                <td><input name="zs" class="easyui-numberBox"></td>
             </tr>
             <tr>
                 <td class="tr">所在展厅：</td>
-                <td><input name="display" class="easyui-textBox" data-options="required:true"></td>
+                <td><input name="display" class="easyui-textBox"></td>
             </tr>
             <tr>
                 <td class="tr">介绍：</td>
@@ -304,19 +303,19 @@
             </tr>
             <tr>
                 <td class="tr">朝代：</td>
-                <td><input name="collection_cd" class="easyui-textBox" data-options="required:true"></td>
+                <td><input name="collection_cd" class="easyui-textBox"></td>
             </tr>
             <tr>
                 <td class="tr">重量：</td>
-                <td><input name="c_weight" class="easyui-textBox" data-options="required:true"></td>
+                <td><input name="c_weight" class="easyui-textBox"></td>
             </tr>
             <tr>
                 <td class="tr">推荐指数：</td>
-                <td><input name="zs" class="easyui-numberBox" data-options="required:true"></td>
+                <td><input name="zs" class="easyui-numberBox"></td>
             </tr>
             <tr>
                 <td class="tr">所在展厅：</td>
-                <td><input name="display" class="easyui-textBox" data-options="required:true"></td>
+                <td><input name="display" class="easyui-textBox"></td>
             </tr>
             <tr>
                 <td class="tr">介绍：</td>

@@ -4,6 +4,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.upload.UploadFile;
 import syz.common.JsonResult;
+import syz.common.WebUtil;
 import syz.model.MyDh;
 
 import java.util.Date;
@@ -37,7 +38,7 @@ public class MyDhController extends Controller {
         UploadFile uploadFile = getFile("zt_photo_path_file");
         MyDh model = getModel(MyDh.class, "");
         if (uploadFile != null) {
-            model.setZtPhotoPath(uploadFile.getFileName());
+            model.setZtPhotoPath(WebUtil.getUploadUrl(getRequest()) + uploadFile.getFileName());
         }
         if (model.getDid() != null) {
             model.setUpdateTime(new Date());

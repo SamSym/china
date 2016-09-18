@@ -45,8 +45,7 @@
                             title: '图片',
                             width: 80,
                             formatter: function (value, row, index) {
-                                var url = ctx + "/upload/" + value;
-                                return "<a target='_blank' href='" + url + "'><img width='100' height='50' src='" + url + "'/></a>";
+                                return "<a target='_blank' href='" + value + "'><img width='100' height='50' src='" + value + "'/></a>";
                             }
                         },
                         {

@@ -4,6 +4,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.upload.UploadFile;
 import syz.common.JsonResult;
+import syz.common.WebUtil;
 import syz.model.MyInfo;
 
 import java.util.Date;
@@ -37,7 +38,7 @@ public class MyInfoController extends Controller {
         UploadFile uploadFile = getFile("photo_path_file");
         MyInfo model = getModel(MyInfo.class, "");
         if (uploadFile != null) {
-            model.setPhotoPath(uploadFile.getFileName());
+            model.setPhotoPath(WebUtil.getUploadUrl(getRequest()) + uploadFile.getFileName());
         }
         if (model.getMid() != null) {
             model.setUpdateTime(new Date());

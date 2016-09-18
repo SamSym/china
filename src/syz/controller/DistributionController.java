@@ -4,6 +4,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.upload.UploadFile;
 import syz.common.JsonResult;
+import syz.common.WebUtil;
 import syz.model.Distribution;
 
 /**
@@ -35,7 +36,7 @@ public class DistributionController extends Controller {
         UploadFile uploadFile = getFile("disphoto_path_file");
         Distribution model = getModel(Distribution.class, "");
         if (uploadFile != null) {
-            model.setDisphotoPath(uploadFile.getFileName());
+            model.setDisphotoPath(WebUtil.getUploadUrl(getRequest()) + uploadFile.getFileName());
         }
         if (model.getDisid() != null) {
             result = model.update();
