@@ -1,0 +1,97 @@
+Table: collection
+-----------------------+--------------+------+-----+---------+---------
+ Field                 | Type         | Null | Key | Default | Remarks 
+-----------------------+--------------+------+-----+---------+---------
+ cid                   | INT(10)      | NO   | PRI |         |         
+ cname                 | VARCHAR(255) | YES  |     |         |         
+ zs                    | INT(10)      | YES  |     |         |         
+ display               | VARCHAR(255) | YES  |     |         |         
+ collection_photo_path | VARCHAR(255) | YES  |     |         |         
+ collection_cd         | VARCHAR(255) | YES  |     |         |         
+ c_no                  | VARCHAR(255) | YES  |     |         |         
+ c_weight              | VARCHAR(255) | YES  |     |         |         
+ c_js                  | VARCHAR(255) | YES  |     |         |         
+ create_man            | VARCHAR(255) | YES  |     |         |         
+ update_man            | VARCHAR(255) | YES  |     |         |         
+ create_time           | DATETIME(19) | YES  |     |         |         
+ update_time           | DATETIME(19) | YES  |     |         |         
+-----------------------+--------------+------+-----+---------+---------
+
+Table: distribution
+---------------+--------------+------+-----+---------+---------
+ Field         | Type         | Null | Key | Default | Remarks 
+---------------+--------------+------+-----+---------+---------
+ disid         | INT(10)      | NO   | PRI |         |         
+ disphoto_path | VARCHAR(255) | YES  |     |         |         
+ describes     | VARCHAR(255) | YES  |     |         |         
+ disname       | VARCHAR(255) | YES  |     |         |         
+ a             | INT(10)      | YES  |     |         |         
+ b             | VARCHAR(255) | YES  |     |         |         
+ c             | VARCHAR(255) | YES  |     |         |         
+---------------+--------------+------+-----+---------+---------
+
+Table: message
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ meid        | INT(10)      | NO   | PRI |         |         
+ userid      | INT(10)      | YES  |     |         |         
+ sname       | VARCHAR(255) | YES  |     |         |         
+ photo       | VARCHAR(255) | YES  |     |         |         
+ content     | VARCHAR(255) | YES  |     |         |         
+ create_man  | VARCHAR(255) | YES  |     |         |         
+ update_man  | VARCHAR(255) | YES  |     |         |         
+ create_time | DATETIME(19) | YES  |     |         |         
+ update_time | DATETIME(19) | YES  |     |         |         
+-------------+--------------+------+-----+---------+---------
+
+Table: my_dh
+---------------+--------------+------+-----+---------+---------
+ Field         | Type         | Null | Key | Default | Remarks 
+---------------+--------------+------+-----+---------+---------
+ did           | INT(10)      | NO   | PRI |         |         
+ dname         | VARCHAR(255) | YES  |     |         |         
+ d_sname       | VARCHAR(255) | YES  |     |         |         
+ zt_photo_path | VARCHAR(255) | YES  |     |         |         
+ create_man    | VARCHAR(255) | YES  |     |         |         
+ create_time   | DATETIME(19) | YES  |     |         |         
+ update_man    | VARCHAR(255) | YES  |     |         |         
+ update_time   | DATETIME(19) | YES  |     |         |         
+---------------+--------------+------+-----+---------+---------
+
+Table: my_info
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ mid         | INT(10)      | NO   | PRI |         |         
+ msub        | VARCHAR(255) | YES  |     |         |         
+ photo_path  | VARCHAR(255) | YES  |     |         |         
+ present     | VARCHAR(255) | YES  |     |         |         
+ detail      | VARCHAR(255) | YES  |     |         |         
+ create_man  | VARCHAR(255) | YES  |     |         |         
+ create_time | DATETIME(19) | YES  |     |         |         
+ update_man  | VARCHAR(255) | YES  |     |         |         
+ update_time | DATETIME(19) | YES  |     |         |         
+-------------+--------------+------+-----+---------+---------
+
+Table: user
+-----------------+--------------+------+-----+---------+---------
+ Field           | Type         | Null | Key | Default | Remarks 
+-----------------+--------------+------+-----+---------+---------
+ userid          | INT(10)      | NO   | PRI |         |         
+ age             | VARCHAR(255) | YES  |     |         |         
+ username        | VARCHAR(255) | YES  |     |         |         
+ passwords       | VARCHAR(255) | YES  |     |         |         
+ User_photo_path | VARCHAR(255) | YES  |     |         |         
+ uname           | VARCHAR(255) | YES  |     |         |         
+ sex             | VARCHAR(255) | YES  |     |         |         
+ tel             | VARCHAR(255) | YES  |     |         |         
+ role            | VARCHAR(255) | YES  |     |         |         
+ create_man      | VARCHAR(255) | YES  |     |         |         
+ create_time     | DATETIME(19) | YES  |     |         |         
+ update_man      | VARCHAR(255) | YES  |     |         |         
+ update_time     | DATETIME(19) | YES  |     |         |         
+ dsname          | VARCHAR(255) | YES  |     |         |         
+ time            | DATETIME(19) | YES  |     |         |         
+-----------------+--------------+------+-----+---------+---------
+
