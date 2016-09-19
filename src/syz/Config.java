@@ -40,6 +40,7 @@ public class Config extends JFinalConfig {
         me.add("/distribution", DistributionController.class, "/");
         me.add("/myInfo", MyInfoController.class, "/");
         me.add("/myDh", MyDhController.class, "/");
+        me.add("/myOrder", MyOrderController.class, "/");
 
         me.add("/api/myuser", UserApi.class);
         me.add("/api/myinfoadvice", MyInfoApi.class);

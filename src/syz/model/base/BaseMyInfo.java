@@ -49,6 +49,14 @@ public abstract class BaseMyInfo<M extends BaseMyInfo<M>> extends Model<M> imple
 		return get("detail");
 	}
 
+	public void setSort(java.lang.Integer sort) {
+		set("sort", sort);
+	}
+
+	public java.lang.Integer getSort() {
+		return get("sort");
+	}
+
 	public void setCreateMan(java.lang.String createMan) {
 		set("create_man", createMan);
 	}

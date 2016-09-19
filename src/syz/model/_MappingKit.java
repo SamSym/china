@@ -21,6 +21,7 @@ public class _MappingKit {
 		arp.addMapping("message", "meid", Message.class);
 		arp.addMapping("my_dh", "did", MyDh.class);
 		arp.addMapping("my_info", "mid", MyInfo.class);
+		arp.addMapping("my_order", "oid", MyOrder.class);
 		arp.addMapping("user", "userid", User.class);
 	}
 }

@@ -10,7 +10,7 @@ Table: collection
  collection_cd         | VARCHAR(255) | YES  |     |         |         
  c_no                  | VARCHAR(255) | YES  |     |         |         
  c_weight              | VARCHAR(255) | YES  |     |         |         
- c_js                  | VARCHAR(255) | YES  |     |         |         
+ c_js                  | TEXT(65535)  | YES  |     |         |         
  create_man            | VARCHAR(255) | YES  |     |         |         
  update_man            | VARCHAR(255) | YES  |     |         |         
  create_time           | DATETIME(19) | YES  |     |         |         
@@ -23,7 +23,7 @@ Table: distribution
 ---------------+--------------+------+-----+---------+---------
  disid         | INT(10)      | NO   | PRI |         |         
  disphoto_path | VARCHAR(255) | YES  |     |         |         
- describes     | VARCHAR(255) | YES  |     |         |         
+ describes     | TEXT(65535)  | YES  |     |         |         
  disname       | VARCHAR(255) | YES  |     |         |         
  a             | INT(10)      | YES  |     |         |         
  b             | VARCHAR(255) | YES  |     |         |         
@@ -67,11 +67,28 @@ Table: my_info
  msub        | VARCHAR(255) | YES  |     |         |         
  photo_path  | VARCHAR(255) | YES  |     |         |         
  present     | VARCHAR(255) | YES  |     |         |         
- detail      | VARCHAR(255) | YES  |     |         |         
+ detail      | TEXT(65535)  | YES  |     |         |         
+ sort        | INT(10)      | YES  |     |         |         
  create_man  | VARCHAR(255) | YES  |     |         |         
  create_time | DATETIME(19) | YES  |     |         |         
  update_man  | VARCHAR(255) | YES  |     |         |         
  update_time | DATETIME(19) | YES  |     |         |         
+-------------+--------------+------+-----+---------+---------
+
+Table: my_order
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ oid         | INT(10)      | NO   | PRI |         |         
+ userId      | INT(10)      | YES  |     |         |         
+ order_date  | VARCHAR(255) | YES  |     |         |         
+ order_time  | VARCHAR(255) | YES  |     |         |         
+ name        | VARCHAR(255) | YES  |     |         |         
+ card        | VARCHAR(255) | YES  |     |         |         
+ tel         | VARCHAR(255) | YES  |     |         |         
+ email       | VARCHAR(255) | YES  |     |         |         
+ create_time | DATETIME(19) | YES  |     |         |         
+ status      | INT(10)      | YES  |     |         |         
 -------------+--------------+------+-----+---------+---------
 
 Table: user

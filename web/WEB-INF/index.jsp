@@ -38,6 +38,7 @@
             <ul class="am-list admin-sidebar-list" id="accordion">
                 <li><a href="javascript:loadContent('user')"><span class="am-icon-user"></span> 用户管理</a></li>
                 <li><a href="javascript:loadContent('message')"><span class="am-icon-envelope"></span> 用户留言管理</a></li>
+                <li><a href="javascript:loadContent('myOrder')"><span class="am-icon-heart"></span> 用户预约管理</a></li>
                 <li><a href="javascript:loadContent('collection')"><span class="am-icon-book"></span> 藏品介绍管理</a></li>
                 <li><a href="javascript:loadContent('distribution')"><span class="am-icon-flag"></span> 遗产分布管理</a></li>
                 <li><a href="javascript:loadContent('myInfo')"><span class="am-icon-newspaper-o"></span> 民窑资讯管理</a></li>

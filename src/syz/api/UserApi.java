@@ -4,6 +4,7 @@ import com.jfinal.aop.Clear;
 import com.jfinal.core.Controller;
 import syz.common.JsonResult;
 import syz.common.LoginInterceptor;
+import syz.model.MyOrder;
 import syz.model.User;
 
 import java.util.Collections;
@@ -47,6 +48,12 @@ public class UserApi extends Controller {
     }
 
     public void addorder() {
-        renderJson(JsonResult.result(true, "200", "预约成功", null));
+        MyOrder model = getModel(MyOrder.class, null, true);
+        model.setCreateTime(new Date());
+        model.setStatus(0);
+        if(model.save()) {
+            renderJson(JsonResult.result(true, "200", "预约成功", null));
+        }else
+            renderJson(JsonResult.result(false, "201", "服务器繁忙，请稍后重试。", null));
     }
 }
