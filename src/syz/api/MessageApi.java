@@ -11,6 +11,7 @@ import syz.model.Message;
 import syz.model.User;
 
 import java.util.Collections;
+import java.util.Date;
 
 /**
  * Created by 宋亚周 on 2016/9/16 0016 19:34.
@@ -28,6 +29,7 @@ public class MessageApi extends Controller {
                 model.setUserid(id);
                 model.setSname(user.getUname());
                 model.setPhoto(user.getUserPhotoPath());
+                model.setCreateTime(new Date());
                 if(model.save()){
                     renderJson(JsonResult.result(true, "200", "留言成功！", null));
                     return;

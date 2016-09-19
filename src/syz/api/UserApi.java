@@ -19,7 +19,7 @@ import java.util.Map;
 public class UserApi extends Controller {
 
     public void getAllUser() {
-        Integer id = getParaToInt("userId");
+        Integer id = getParaToInt("Userid");
         User model = User.dao.findById(id);
         if (model != null) {
             renderJson(JsonResult.result(true, "200", "成功！", Collections.singletonList(model)));
