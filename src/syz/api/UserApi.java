@@ -1,7 +1,10 @@
 package syz.api;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.jfinal.aop.Clear;
 import com.jfinal.core.Controller;
+import com.jfinal.json.JFinalJson;
 import syz.common.JsonResult;
 import syz.common.LoginInterceptor;
 import syz.model.MyOrder;
@@ -48,7 +51,16 @@ public class UserApi extends Controller {
     }
 
     public void addorder() {
-        MyOrder model = getModel(MyOrder.class, null, true);
+        String json = getPara("JSONDATA");
+        JSONObject jsonObject = JSON.parseObject(json);
+        MyOrder model = new MyOrder();
+        model.setUserId(jsonObject.getInteger("userId"));
+        model.setOrderDate(jsonObject.getString("order_date"));
+        model.setOrderTime(jsonObject.getString("order_time"));
+        model.setName(jsonObject.getString("name"));
+        model.setCard(jsonObject.getString("card"));
+        model.setTel(jsonObject.getString("tel"));
+        model.setEmail(jsonObject.getString("email"));
         model.setCreateTime(new Date());
         model.setStatus(0);
         if(model.save()) {
